@@ -12,3 +12,11 @@ This project demonstrates hands-on privilege escalation techniques on a Linux en
 * **OS Environment:** Kali Linux / Target Linux VM
 * **Techniques:** SUID/SGID Exploitation, GTFOBins, Linux Enumeration (`find`, `sudo -l`)
 * **Tools:** Bash, GTFOBins
+
+  
+## Exploitation & Proof of Concept
+
+After identifying that the `find` binary had the SUID bit set during enumeration, the following command was executed to spawn an interactive shell with root privileges:
+
+```bash
+sudo find . -exec /bin/sh -p \; -quit
